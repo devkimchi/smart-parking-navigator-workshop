@@ -1,0 +1,36 @@
+name: Bootstrap workshop issues
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  create-issues:
+    if: ${{ !github.event.repository.is_template }}
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Create workshop issues
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for file in $(find .github/bootstrap-issues -name '*.md' -type f | sort); do
+            title=$(head -n 1 "$file" | sed 's/^#[[:space:]]*//')
+            tail -n +2 "$file" > "${RUNNER_TEMP}/issue-body.md"
+            gh issue create --title "$title" --body-file "${RUNNER_TEMP}/issue-body.md"
+          done
+
+      - name: Remove one-time bootstrap files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -r .github/workflows/bootstrap-issues.yml .github/bootstrap-issues
+          git commit -m "chore: remove template bootstrap files"
+          git push

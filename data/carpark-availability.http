@@ -1,0 +1,16 @@
+@baseUrl = https://api.data.gov.sg/v1
+@dateTime = 2026-08-10T20:41:39
+
+### Get the latest carpark availability
+GET {{baseUrl}}/transport/carpark-availability
+x-api-key: {{$dotenv DATA_GOV_SG_API_KEY}}
+Accept: application/json
+
+### Get carpark availability at a specific time (SGT)
+GET {{baseUrl}}/transport/carpark-availability?date_time={{dateTime}}
+x-api-key: {{$dotenv DATA_GOV_SG_API_KEY}}
+Accept: application/json
+
+### Get the latest carpark availability without an API key
+GET {{baseUrl}}/transport/carpark-availability
+Accept: application/json

@@ -1,0 +1,11 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.4.6">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <UserSecretsId>smart-parking-navigator-workshop-apphost</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarparkAvailability.ApiApp\CarparkAvailability.ApiApp.csproj" />
+    <ProjectReference Include="..\CarparkAvailability.WebApp\CarparkAvailability.WebApp.csproj" />
+  </ItemGroup>
+</Project>

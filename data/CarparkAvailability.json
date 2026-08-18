@@ -1,0 +1,199 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Data.gov.sg APIs",
+    "description": "\"APIs for People\"",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.data.gov.sg/v1"
+    }
+  ],
+  "paths": {
+    "/transport/carpark-availability": {
+      "get": {
+        "summary": "Get the latest carpark availability in Singapore",
+        "description": "- Retrieved every minute\n- Use the date_time parameter to retrieve the latest carpark availability at that moment in time\n- Lot types: C (Cars), H (Heavy vehicles), S (Motorcycles with side car), Y (Motorcycles)\n- Detailed carpark information can be found at https://data.gov.sg/dataset/hdb-carpark-information\n- We recommend that this endpoint be called every minute",
+        "tags": [
+          "Transport"
+        ],
+        "parameters": [
+          {
+            "name": "date_time",
+            "in": "query",
+            "description": "YYYY-MM-DD[T]HH:mm:ss (SGT)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "API key for higher rate limits (optional)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Carpark availability",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "api_info": {
+                      "$ref": "#/components/schemas/ApiInfo"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/CarparkAvailability"
+                      }
+                    }
+                  },
+                  "example": {
+                    "api_info": {
+                      "status": "healthy"
+                    },
+                    "items": [
+                      {
+                        "timestamp": "2025-08-07T09:01:00+08:00",
+                        "carpark_data": [
+                          {
+                            "total_lots": "500",
+                            "lot_type": "C",
+                            "lots_available": "123"
+                          },
+                          {
+                            "total_lots": "100",
+                            "lot_type": "H",
+                            "lots_available": "12"
+                          },
+                          {
+                            "total_lots": "50",
+                            "lot_type": "S",
+                            "lots_available": "5"
+                          },
+                          {
+                            "total_lots": "50",
+                            "lot_type": "Y",
+                            "lots_available": "5"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiInfo": {
+        "type": "object",
+        "description": "Contains information about the API (from Data.gov.sg)",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "healthy"
+            ]
+          }
+        }
+      },
+      "CarparkAvailability": {
+        "type": "object",
+        "required": [
+          "timestamp",
+          "carpark_data"
+        ],
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "description": "Time of acquisition of data",
+            "format": "date-time"
+          },
+          "carpark_data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "description": "Carpark availability information per carpark",
+              "required": [
+                "total_lots",
+                "lot_type",
+                "lots_available"
+              ],
+              "properties": {
+                "total_lots": {
+                  "type": "string",
+                  "description": "Total number of carpark lots at"
+                },
+                "lot_type": {
+                  "type": "string",
+                  "description": "Type of carpark lot.\n- C: Cars\n- H: Heavy vehicles\n- S: Motorcycles with side car\n- Y: Motorcycles",
+                  "enum": [
+                    "C",
+                    "H",
+                    "S",
+                    "Y"
+                  ]
+                },
+                "lots_available": {
+                  "type": "string",
+                  "description": "Total number of available carpark lots"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "responses": {
+      "Error": {
+        "description": "Error information",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key"
+      }
+    }
+  }
+}

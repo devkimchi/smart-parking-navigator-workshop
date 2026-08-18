@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CarparkAvailability.ApiApp/CarparkAvailability.ApiApp.csproj" />
+    <Project Path="src/CarparkAvailability.AppHost/CarparkAvailability.AppHost.csproj" />
+    <Project Path="src/CarparkAvailability.ServiceDefaults/CarparkAvailability.ServiceDefaults.csproj" />
+    <Project Path="src/CarparkAvailability.WebApp/CarparkAvailability.WebApp.csproj" />
+  </Folder>
+</Solution>
