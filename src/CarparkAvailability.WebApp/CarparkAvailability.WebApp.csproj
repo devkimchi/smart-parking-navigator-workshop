@@ -1,9 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <ItemGroup>
-    <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CarparkAvailability.ServiceDefaults\CarparkAvailability.ServiceDefaults.csproj" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,4 @@
 using CarparkAvailability.WebApp.Components;
-using Microsoft.FluentUI.AspNetCore.Components;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +6,6 @@ builder.AddServiceDefaults();
 builder.Services
     .AddRazorComponents()
     .AddInteractiveServerComponents();
-builder.Services.AddFluentUIComponents();
 
 WebApplication app = builder.Build();
 

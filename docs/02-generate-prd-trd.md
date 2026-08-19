@@ -1,7 +1,6 @@
 # Generate `PRD.md` and `TRD.md`
 
-**Outcome:** Turn the approved idea into a workshop-sized product specification
-and an implementable technical design.
+**Outcome:** Turn the approved idea into a workshop-sized product specification and an implementable technical design.
 
 ## 1. Review the inputs
 
@@ -14,20 +13,18 @@ Read:
 - `data/CarparkAvailability.json`
 - both API-key setup guides
 
-The architecture is a constraint, not a design exercise: keep the existing
-Aspire, ApiApp, WebApp, and ServiceDefaults projects.
+The architecture is a constraint, not a design exercise: keep the existing Aspire, ApiApp, WebApp, and ServiceDefaults projects.
 
 ## 2. Open the issue
 
-Open **Generate `PRD.md` and `TRD.md`** from **My work**, confirm its acceptance
-criteria, and create an isolated session.
+Open **Generate `PRD.md` and `TRD.md`** from **My work**, confirm its acceptance criteria, and create an isolated session.
 
 ## 3. Generate the documents
 
 Use this starting prompt:
 
 ```text
-Implement this issue by creating only PRD.md and TRD.md. Use IDEATION.md, the
+Implement this issue by creating only `PRD.md` and `TRD.md`. Use `IDEATION.md`, the
 prepared Singapore datasets, setup guides, and Aspire scaffold as source
 material. Keep the scope achievable in a workshop and do not write application
 code.
@@ -44,8 +41,7 @@ The PRD should require:
 - Available-only, vehicle-type, night-parking, and car-park-type filters
 - Details and clear loading, empty, stale, unavailable, and error states
 
-Defer favorites, alerts, forecasting, accounts, databases, traffic, weather,
-deployment, MCP, and agentic AI.
+Defer favorites, alerts, forecasting, accounts, databases, traffic, weather, deployment, and MCP. Keep agentic AI out of the core application MVP; it is introduced separately in step 05.
 
 The TRD should explain:
 
@@ -57,14 +53,11 @@ The TRD should explain:
 - Google Maps integration
 - Security, accessibility, error handling, and testing
 
-Do not infer undocumented meanings for free-parking or short-term-parking values.
-Use Singapore Standard Time where time interpretation is required.
+Do not infer undocumented meanings for free-parking or short-term-parking values. Use Singapore Standard Time where time interpretation is required.
 
 ## 5. Review and merge
 
-Check that every P0 requirement has testable acceptance criteria and a matching
-technical design. Remove speculative features or unnecessary infrastructure.
-Create and merge a pull request containing only the two documents.
+Check that every P0 requirement has testable acceptance criteria and a matching technical design. Remove speculative features or unnecessary infrastructure. Create and merge a pull request containing only the two documents.
 
 ## Completion checklist
 

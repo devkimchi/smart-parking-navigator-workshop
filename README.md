@@ -3,7 +3,7 @@
 Build a mobile-first application for finding suitable HDB car parks in
 Singapore with GitHub Copilot. The workshop starts from a prepared .NET Aspire
 solution and progresses from repository instructions and requirements to a
-working frontend, backend, and Copilot canvas.
+working frontend, backend, Copilot canvas, and grounded AI parking assistant.
 
 [Start the workshop](docs/00-setup.md) |
 [View the completed demo](https://github.com/devkimchi/smart-parking-navigator) |
@@ -18,9 +18,11 @@ working frontend, backend, and Copilot canvas.
 - A .NET Aspire AppHost that runs the frontend and backend together
 - A project-scoped Copilot canvas that presents a compact parking experience
   directly in the GitHub Copilot app
+- A single AI agent that recommends parking from current ApiApp data and
+  explains the trade-offs
 
-The workshop does not cover Azure deployment, databases, MCP servers, or
-agentic AI workflows.
+The workshop does not cover Azure deployment, databases, MCP servers, future
+availability forecasting, reservations, or payments.
 
 ## Curriculum
 
@@ -31,6 +33,7 @@ agentic AI workflows.
 | 02 | [Generate `PRD.md` and `TRD.md`](docs/02-generate-prd-trd.md) | Reviewed product and technical requirements |
 | 03 | [Implement the application](docs/03-implement-app.md) | Working frontend and backend |
 | 04 | [Create a Copilot canvas](docs/04-create-canvas.md) | Parking UI inside the GitHub Copilot app |
+| 05 | [Implement an AI parking agent](docs/05-implement-ai-agent.md) | Grounded recommendations from current parking data |
 
 ## Prepared Starter
 
@@ -45,7 +48,7 @@ The template includes:
   template
 
 Participants create `AGENTS.md`, `PRD.md`, `TRD.md`, application behavior,
-tests, and the canvas extension during the workshop.
+tests, the canvas extension, and the AI parking agent during the workshop.
 
 ## Starter Structure
 

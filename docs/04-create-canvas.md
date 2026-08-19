@@ -1,15 +1,12 @@
 # Create a Copilot Canvas
 
-**Outcome:** Build a project-scoped extension that mimics the completed parking
-experience and renders directly inside the GitHub Copilot app.
+**Outcome:** Build a project-scoped extension that mimics the completed parking experience and renders directly inside the GitHub Copilot app.
 
-The Blazor WebApp remains the production application. The canvas is a compact
-Copilot-native companion and a learning exercise in extension development.
+The Blazor WebApp remains the production application. The canvas is a compact Copilot-native companion and a learning exercise in extension development.
 
 ## 1. Open the issue
 
-Open **Create a Smart Parking Navigator canvas**, review its acceptance
-criteria, and create an isolated session.
+Open **Create a Smart Parking Navigator canvas**, review its acceptance criteria, and create an isolated session.
 
 Use this starting prompt:
 
@@ -29,10 +26,8 @@ the selected destination or active filter.
 Copilot should:
 
 1. Read the installed extension guide and current canvas SDK types.
-2. Scaffold a **project** canvas under
-   `.github/extensions/smart-parking-canvas/`.
-3. Keep `extension.mjs` as the entry point and avoid adding a package for
-   `@github/copilot-sdk`.
+2. Scaffold a **project** canvas under `.github/extensions/smart-parking-canvas/`.
+3. Keep `extension.mjs` as the entry point and avoid adding a package for `@github/copilot-sdk`.
 4. Bind the renderer HTTP server to `127.0.0.1` on an ephemeral port.
 5. Implement idempotent open behavior and close server resources in `onClose`.
 6. Reload extensions and inspect extension status and logs.
@@ -50,13 +45,9 @@ The canvas should show a small representative result set with:
 - Freshness and source update time
 - Vehicle or availability filters
 
-Use the Copilot canvas semantic theme variables rather than copying the
-WebApp stylesheet. Ensure controls have labels, visible focus, keyboard support,
-and information that does not rely on colour alone.
+Use the Copilot canvas semantic theme variables rather than copying the WebApp stylesheet. Ensure controls have labels, visible focus, keyboard support, and information that does not rely on colour alone.
 
-The iframe has no privileged bridge to the host. User controls should call the
-extension's loopback HTTP endpoints. Agent-facing operations belong in declared
-canvas actions.
+The iframe has no privileged bridge to the host. User controls should call the extension's loopback HTTP endpoints. Agent-facing operations belong in declared canvas actions.
 
 ## 4. Validate the extension
 
@@ -69,9 +60,7 @@ Ask Copilot to complete the current canvas validation checklist:
 - Confirm invalid input is rejected by its JSON Schema.
 - Confirm the renderer server closes with the canvas.
 
-Open the canvas in the GitHub Copilot app and compare its information hierarchy
-with the WebApp. It should feel related without attempting to embed or deploy
-the Blazor application.
+Open the canvas in the GitHub Copilot app and compare its information hierarchy with the WebApp. It should feel related without attempting to embed or deploy the Blazor application.
 
 ## Completion checklist
 
@@ -81,3 +70,5 @@ the Blazor application.
 - [ ] The canvas uses sample data and runs without Aspire.
 - [ ] Discovery, open, input validation, and an action were verified.
 - [ ] The UI is theme-aware and keyboard accessible.
+
+Continue to [Implement an AI parking agent](05-implement-ai-agent.md).

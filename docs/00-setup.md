@@ -1,8 +1,6 @@
 # Set Up the Workshop
 
-**Outcome:** Create your own repository from the workshop template, configure
-the required credentials, load it in GitHub Copilot, and run the prepared Aspire
-application.
+**Outcome:** Create your own repository from the workshop template, configure the required credentials, load it in GitHub Copilot, and run the prepared Aspire application.
 
 ## 1. Install the tools
 
@@ -13,8 +11,8 @@ Install or update:
 - [GitHub CLI](https://gh.io/cli)
 - [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 - [Aspire CLI](https://aspire.dev/get-started/install-cli/)
-- [Docker Desktop](https://docs.docker.com/get-started/) or another
-  OCI-compatible container runtime
+- [Docker Desktop](https://docs.docker.com/get-started/) or another OCI-compatible container runtime
+- (OPTIONAL) GitHub Mobile app from Google Play Store or Apple App Store
 
 Verify the command-line tools:
 
@@ -44,19 +42,16 @@ Follow both prepared guides:
 1. [Configure Google Maps Platform](google-maps-api-key.md).
 2. [Request and configure a data.gov.sg API key](data-gov-sg-api-key.md).
 
-Never paste either key into a Copilot prompt, issue, source file, commit, or
-application log.
+Never paste either key into a Copilot prompt, issue, source file, commit, or application log.
 
 ## 4. Create your workshop repository
 
-1. Open
-   [`devkimchi/smart-parking-navigator-workshop`](https://github.com/devkimchi/smart-parking-navigator-workshop).
+1. Open [`devkimchi/smart-parking-navigator-workshop`](https://github.com/devkimchi/smart-parking-navigator-workshop).
 2. Select **Use this template** and **Create a new repository**.
 3. Choose your account or organisation and a repository name.
-4. Wait for the bootstrap workflow to create the four workshop issues.
+4. Wait for the bootstrap workflow to create the five workshop issues.
 
-Do not fork the template. A repository created from the template has an
-independent history and receives the prepared issues automatically.
+Do not fork the template. A repository created from the template has an independent history and receives the prepared issues automatically.
 
 ## 5. Load the repository
 
@@ -69,10 +64,20 @@ independent history and receives the prepared issues automatically.
 From the repository root:
 
 ```bash
+# zsh/bash
 dotnet user-secrets set "GoogleMaps:ApiKey" "<your-restricted-google-maps-key>" \
   --project src/CarparkAvailability.AppHost
 
 dotnet user-secrets set "DataGovSg:ApiKey" "<your-data-gov-sg-key>" \
+  --project src/CarparkAvailability.AppHost
+```
+
+```powershell
+# PowerShell
+dotnet user-secrets set "GoogleMaps:ApiKey" "<your-restricted-google-maps-key>" `
+  --project src/CarparkAvailability.AppHost
+
+dotnet user-secrets set "DataGovSg:ApiKey" "<your-data-gov-sg-key>" `
   --project src/CarparkAvailability.AppHost
 ```
 
@@ -84,16 +89,14 @@ dotnet build CarparkAvailability.slnx --no-restore
 aspire run
 ```
 
-Open the Aspire dashboard URL printed in the terminal, then open the WebApp
-resource. Confirm that the workshop starter page loads and that ApiApp is
-healthy.
+Open the Aspire dashboard URL printed in the terminal, then open the WebApp resource. Confirm that the workshop starter page loads and that ApiApp is healthy.
 
 ## Completion checklist
 
 - [ ] All required tools are installed.
 - [ ] GitHub authentication works.
 - [ ] Both API keys are stored in AppHost user secrets.
-- [ ] Your repository contains four workshop issues.
+- [ ] Your repository contains five workshop issues.
 - [ ] ApiApp and WebApp run through Aspire.
 
 Continue to [Generate `AGENTS.md`](01-generate-agents-md.md).

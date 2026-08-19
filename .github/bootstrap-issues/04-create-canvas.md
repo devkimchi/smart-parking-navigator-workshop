@@ -1,10 +1,6 @@
 # Create a Smart Parking Navigator canvas
 
-Create a project-scoped GitHub Copilot canvas extension that presents a compact
-parking UI inspired by the completed WebApp and runs directly in the GitHub
-Copilot app.
-
-Use [workshop step 04](../blob/main/docs/04-create-canvas.md).
+Create a project-scoped GitHub Copilot canvas extension that presents a compact parking UI inspired by the completed WebApp and runs directly in the GitHub Copilot app.
 
 ## Acceptance criteria
 
