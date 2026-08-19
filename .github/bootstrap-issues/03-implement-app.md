@@ -1,10 +1,6 @@
 # Implement Smart Parking Navigator
 
-Implement the frontend and backend described by the reviewed `PRD.md` and
-`TRD.md`. Preserve the prepared Aspire project boundaries and use the bundled
-datasets and API contract.
-
-Use [workshop step 03](../blob/main/docs/03-implement-app.md).
+Implement the frontend and backend described by the reviewed `PRD.md` and `TRD.md`. Preserve the prepared Aspire project boundaries and use the bundled datasets and API contract. Create a PR first, then commit changes to the PR while implementing app. If possible, take a screenshot how the UI looks like.
 
 ## Acceptance criteria
 

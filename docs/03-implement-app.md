@@ -1,17 +1,15 @@
 # Implement the Application
 
-**Outcome:** Build and validate the Smart Parking Navigator frontend and backend
-from the reviewed PRD and TRD.
+**Outcome:** Build and validate the Smart Parking Navigator frontend and backend from the reviewed PRD and TRD.
 
 ## 1. Open the issue
 
-Open **Implement Smart Parking Navigator**, review the acceptance criteria, and
-create an isolated session.
+Open **Implement Smart Parking Navigator**, review the acceptance criteria, and create an isolated session.
 
 Use this starting prompt:
 
 ```text
-Implement this issue according to PRD.md, TRD.md, and AGENTS.md. Preserve the
+Implement this issue according to `PRD.md`, `TRD.md`, and `AGENTS.md`. Preserve the
 prepared Aspire project boundaries. Work incrementally, validate each
 checkpoint, and do not add deferred features.
 ```
@@ -25,8 +23,7 @@ Implement and validate:
 - A typed data.gov.sg client based on the prepared contract
 - Safe numeric parsing and lot-type mapping
 - Matching static and live records without converting unknown values to zero
-- Immutable last-known-good availability with fresh, stale, and unavailable
-  states
+- Immutable last-known-good availability with fresh, stale, and unavailable states
 
 Ask Copilot to show the focused tests and validation results before continuing.
 
@@ -52,10 +49,9 @@ Implement:
 - Availability, distance, occupancy, and freshness
 - Required filters and car park details
 - Loading, empty, invalid, stale, unavailable, and failure states
-- Responsive keyboard-accessible Fluent UI
+- Responsive keyboard-accessible UI
 
-WebApp must call ApiApp for all parking data. It must never call data.gov.sg
-directly.
+WebApp must call ApiApp for all parking data. It must never call data.gov.sg directly.
 
 ## 5. Checkpoint D: Integration and tests
 
@@ -87,9 +83,7 @@ acceptance criteria, over-engineering, unsafe data assumptions, accessibility
 gaps, and untested behavior. Fix confirmed issues without adding deferred scope.
 ```
 
-Exercise the application with destinations such as Tampines, Toa Payoh, and
-Bugis. Review the pull request and merge only after the documented behavior is
-demonstrated.
+Exercise the application with destinations such as Tampines, Toa Payoh, and Bugis. Review the pull request and merge only after the documented behavior is demonstrated.
 
 ## Completion checklist
 
